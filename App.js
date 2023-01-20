@@ -1,14 +1,18 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, SafeAreaView } from "react-native";
 import { TailwindProvider } from "tailwindcss-react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "./view/screens/Home";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <TailwindProvider>
-      <SafeAreaView>
-        <Text>Open up App.js to start working on your app!</Text>
-        <StatusBar style="auto" />
-      </SafeAreaView>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </TailwindProvider>
   );
 }
